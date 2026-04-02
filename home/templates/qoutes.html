@@ -8,5 +8,13 @@
 <body>
     <h1> qoute of the day  </h1>
     <h2>{{ qoute  }}</h2>
+    <h4>  share your qouate</h4>
+    <form method ='post'>
+        {% csrf_token %}
+        <input type = 'text'name ='qoute' palceholder = 'enter your qoute'><input type = 'submit' value = 'submit'>
+    </form>
+    {% if submitted_qoute%}
+      <h3> your quote is {{ submitted_qoute }}</h3>
+      {% endif %}
 </body>
 </html>
