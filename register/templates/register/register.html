@@ -7,13 +7,15 @@
 
     <div>
         <h1 style="text-align: center;">Register</h1>
-        <form method ="POST" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+           
+
+         <form method ="POST" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
             {% csrf_token %}
-            <input type="text" placeholder="enter name">
-            <input type="text" placeholder="enter email">
-            <input type="text" placeholder="set password">
+            <input type="text"name= "username" placeholder="enter name">
+            <input type="text" name="email" placeholder="enter email">
+            <input type="text" name="password" placeholder="set password">
             <input type="submit" value="Register">
-        </form>
+        </form> 
     </div>
 </head>
 <body>

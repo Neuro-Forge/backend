@@ -1,5 +1,27 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,redirect
+from django.http import HttpResponse
+from .forms import registerFrom 
+from .models import register
+from django.contrib.auth.models import User, auth
 # Create your views here.
-def register(request):
-    return render(request, 'register/register.html')
+def signup(request):
+    
+    form =registerFrom()
+    if request.method == 'POST':
+        username = request.POST['username']
+        email  =request.POST['email']
+        password = request.POST['password']
+        
+        if User.objects.filter(username=username).exists():
+           return HttpResponse('username already exist')
+           
+        else:
+            user = User.objects.create_user(username=username,email=email,password=password)
+            user.save()
+          
+       
+        return redirect('home')
+        
+    else:
+        return render(request, 'register/register.html', )
+    
