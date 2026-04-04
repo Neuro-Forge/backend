@@ -6,29 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div style="text-align: center;">
-    <h1 >Quote of the Day</h1>
-    <h2 style ="color:red">{{ random_quote }}</h2>
-    </div>
-
-    <h4>Share your quote</h4>
-    <form method='post'>
-        {% csrf_token %}
-        <input type='text' name='qoute' placeholder='Enter your quote'>
-        <input type='submit' value='Submit'>
-    </form>
-
- 
-
-    {% if quote_list %}
-      <h3>All saved quotes:</h3>
-      <ul>
-        {% for quote in quote_list %}
-          <li>{{ quote.quote }}</li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>No quotes have been saved yet.</p>
-    {% endif %}
+    <h1> qoute of the day  </h1>
+    <h2>{{ qoute  }}</h2>
 </body>
 </html>
