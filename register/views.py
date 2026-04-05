@@ -18,9 +18,10 @@ def signup(request):
         else:
             user = User.objects.create_user(username=username,email=email,password=password)
             user.save()
+            return render(request, 'login.html')
           
        
-        return redirect('home')
+        
         
     else:
         return render(request, 'register/register.html', )
