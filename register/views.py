@@ -20,9 +20,10 @@ def signup(request):
             user.save()
             return render(request, 'login.html')
           
-       
+    
         
         
     else:
         return render(request, 'register/register.html', )
+    
     
