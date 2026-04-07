@@ -4,4 +4,4 @@ from django.db import models
 class Quote(models.Model):
     quote = models.CharField(max_length=255)
     submitted_at = models.DateTimeField(auto_now_add=True)
-    
+    image = models.ImageField(upload_to='images/', blank=True, null=True)

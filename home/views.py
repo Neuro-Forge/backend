@@ -4,9 +4,6 @@ from .models import Quote
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
-
-def qoutes(request):
     if request.method == 'POST':
         submitted_text = request.POST.get('qoute')
         if submitted_text:
@@ -28,10 +25,13 @@ def qoutes(request):
         "The only way to do great work is to love what you do. - Steve Jobs",
         "do not let the fear of losing be greater than the excitement of winning. - Robert Kiyosaki",
     ]
-
+    
     random_quote = random.choice(defult_quotes)
-    return render(request, 'qoutes.html', {
-        'submitted_qoute': selected_quote_text,
-        'quote_list': quote_list,
-        'random_quote': random_quote,
-    })
+    data ={
+        "random_quote": random_quote,
+    }
+    
+    return render(request, 'home.html', data)
+
+def qoutes(request):
+    pass
