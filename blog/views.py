@@ -4,6 +4,7 @@ from .models import user_blog
 from .serializaers import blog_serializer
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
+from .forms import userblogfrom
 
 def insert_blog(request):
     if request.method == "POST":
@@ -39,3 +40,13 @@ def serializer(request):
             serializer.save()
             return JsonResponse(serializer.data, status=201)
          
+
+def modelForm(request):
+    if request.method == 'POST':
+        form = userblogfrom(request.POST)
+        if  form.is_valid():
+            form.save()
+    else:
+        form = userblogfrom()
+
+    return render(request, 'model.html',{"form": form})
