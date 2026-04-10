@@ -18,9 +18,10 @@
             <h2> blogs avilable </h2>
             <p>blog heading</p>
             {% for blog in blogs %}
-               <p>{{ blog}}</p>
+               <h1>{{ blog.blog_heading }}</h1>
+               <p>{{ blog.blog_content }}</p>
             {% endfor %}
             
-    </forms>
+    </form>
 </body>
 </html>
